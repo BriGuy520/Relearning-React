@@ -15,7 +15,7 @@ class Board extends React.Component {
   render(){
     return (
       <div className="board-style">
-        <button onClick={() => this.setState({ count: this.state.count -= 1})}>-</button>
+        <button onClick={() => this.state.count > 0 ? this.setState({ count: this.state.count -= 1}) : this.state.count}>-</button>
         <p>{this.state.count}</p>
         <button onClick={() => this.setState({ count: this.state.count += 1})}>+</button>
       </div>
