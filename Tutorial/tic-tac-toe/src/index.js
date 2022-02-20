@@ -106,6 +106,7 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+    console.log("Squares after click: " + squares);
 
     // we have winner or square already chosen simply return
     // i.e. do nothing.
