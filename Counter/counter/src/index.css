@@ -1,3 +1,9 @@
 .board-style {
-  font-size: 30px;
+  font-size: 20px;
+  display: flex;
+}
+
+.board-style button {
+  padding: 0 10px;
+  margin: 20px;
 }
