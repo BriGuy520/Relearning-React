@@ -1,10 +1,10 @@
-import Board from './Board';
+import Quantity from './Quantity';
 
 function App() {
   return (
     <div className="App">
       <p>Counter!</p>
-      <Board />
+      <Quantity />
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../index.css';
 
-class Board extends React.Component {
+class Quantity extends React.Component {
   constructor(props){
     super(props);
 
@@ -15,12 +15,12 @@ class Board extends React.Component {
   render(){
     return (
       <div className="board-style">
-        <button onClick={() => this.state.count > 0 ? this.setState({ count: this.state.count -= 1}) : this.state.count}>-</button>
+        <button onClick={() => this.state.count > 0 ? this.setState({ count: this.state.count - 1}) : this.state.count}>-</button>
         <p>{this.state.count}</p>
-        <button onClick={() => this.setState({ count: this.state.count += 1})}>+</button>
+        <button onClick={() => this.setState({ count: this.state.count + 1})}>+</button>
       </div>
     );
   }
 };
 
-export default Board;
+export default Quantity;
