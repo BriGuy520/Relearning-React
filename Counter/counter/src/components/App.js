@@ -1,10 +1,11 @@
-import Quantity from './Quantity';
+import Store from './Store';
 
 function App() {
+
   return (
     <div className="App">
-      <p>Counter!</p>
-      <Quantity />
+      <p>Shopping Cart</p>
+      <Store />
     </div>
   );
 }

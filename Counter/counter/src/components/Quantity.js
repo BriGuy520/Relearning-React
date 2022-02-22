@@ -1,26 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../index.css';
 
-class Quantity extends React.Component {
-  constructor(props){
-    super(props);
+function Quantity(props){
 
-    this.state = {
-      count: 0,
-    };
-
-  }
-
-  render(){
-    return (
-      <div className="board-style">
-        <button onClick={() => this.state.count > 0 ? this.setState({ count: this.state.count - 1}) : this.state.count}>-</button>
-        <p>{this.state.count}</p>
-        <button onClick={() => this.setState({ count: this.state.count + 1})}>+</button>
-      </div>
-    );
-  }
+  return (
+    <div className="board-style">
+      <button onClick={() => props.itemCount > 0 ?  props.removeFromCart() :  props.itemCount }>-</button>
+      <p>{props.itemCount}</p>
+      <button onClick={() =>  props.addToCart()}>+</button>
+    </div>
+  );
 };
 
 export default Quantity;
