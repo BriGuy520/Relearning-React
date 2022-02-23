@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AddProduct from './AddProduct';
 import Quantity from './Quantity';
 
 export default class Store extends Component {
@@ -8,32 +7,89 @@ export default class Store extends Component {
     super(props);
 
     this.state = {
+      name: "",
+      price: 0,
       items: [],
       cart: [],
       quantity: 0,
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleItemNameChange = this.handleItemNameChange.bind(this);
+    this.handlePriceChange = this.handlePriceChange.bind(this);
   }
 
-  addToCart(){
+  increaseItemQuantityByOneInCart(){
     this.setState({
       quantity: this.state.quantity + 1,
     });
   }
 
-  removeFromCart(){
+  removeItemFromCartByOne(){
     this.setState({
       quantity: this.state.quantity - 1,
     });
   }
 
+  handleSubmit = (event) => {
+
+    const {name, price } = this.state;
+    const items = this.state.items.slice();
+
+    this.setState({
+       items: [...items, {name, price}],
+    });
+
+  }
+
+  handleItemNameChange = (event) => {
+
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  
+  }
+
+  handlePriceChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value, 
+    });
+  }
+
+
+  addItemsToTheStore = () => {
+    
+
+  } 
+
   render(){
+    console.log(this.state.items);
+
     return (
-      <div>
-        <AddProduct item={this.state.items} />
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>Name of Item:
+              <input 
+                type="text"
+                name="name"
+                onChange={this.handleItemNameChange}
+                value={this.state.name}
+              />
+            </label>
+            <label>Price of Item:
+              <input
+                type="number"
+                name="price"
+                onChange={this.handlePriceChange}
+                value={this.state.price}
+              />
+            </label>
+            <input type="submit" name="Submit" />
+          </form>
         <Quantity 
           itemCount={this.state.quantity}
-          addToCart={() => this.addToCart()} 
-          removeFromCart={() => this.removeFromCart()} 
+          addToCart={() => this.increaseItemQuantityByOneInCart()} 
+          removeFromCart={() => this.removeItemFromCartByOne()} 
         />
       </div>
     );
