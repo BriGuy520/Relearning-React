@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Quantity from './Quantity';
+import Items from './Items';
 
 export default class Store extends Component {
 
@@ -35,6 +36,8 @@ export default class Store extends Component {
 
     const {name, price } = this.state;
     const items = this.state.items.slice();
+    
+    event.preventDefault();
 
     this.setState({
        items: [...items, {name, price}],
@@ -55,12 +58,6 @@ export default class Store extends Component {
       [event.target.name]: event.target.value, 
     });
   }
-
-
-  addItemsToTheStore = () => {
-    
-
-  } 
 
   render(){
     console.log(this.state.items);
@@ -86,12 +83,13 @@ export default class Store extends Component {
             </label>
             <input type="submit" name="Submit" />
           </form>
-        <Quantity 
-          itemCount={this.state.quantity}
-          addToCart={() => this.increaseItemQuantityByOneInCart()} 
-          removeFromCart={() => this.removeItemFromCartByOne()} 
-        />
-      </div>
+          <Items items={this.state.items} />
+          <Quantity 
+            itemCount={this.state.quantity}
+            addToCart={() => this.increaseItemQuantityByOneInCart()} 
+            removeFromCart={() => this.removeItemFromCartByOne()} 
+          />
+        </div>
     );
   }
 }
