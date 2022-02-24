@@ -1,13 +1,13 @@
 import React from 'react';
 import '../index.css';
 
-function Quantity(props){
+function Quantity({ removeFromCart, addToCart, itemCount }){
 
   return (
     <div className="board-style">
-      <button onClick={() => props.itemCount > 0 ?  props.removeFromCart() :  props.itemCount }>-</button>
-      <p>{props.itemCount}</p>
-      <button onClick={() =>  props.addToCart()}>+</button>
+      <button onClick={() => itemCount > 0 ?  removeFromCart() :  itemCount }>-</button>
+      <p>{itemCount}</p>
+      <button onClick={() =>  addToCart()}>+</button>
     </div>
   );
 };
